@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="hotel.View.Login">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#4a2723">
+
+
+
+            <Label Text="Tesser Hotel" FontSize="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" TextColor="#07a2a6"/>
+
+            <Frame CornerRadius="10" Margin="20" VerticalOptions="StartAndExpand" Padding="10" BackgroundColor="#07a2a6" >
+                <StackLayout>
+                    <Label Text="Login Hotel" FontSize="Title" HorizontalTextAlignment="Center" TextColor="#4a2723"/>
+                    <Label Text="Usuario" TextColor="#4a2723"/>
+                    <Entry x:Name="txt_usuario"/>
+
+                    <Label Text="Senha" TextColor="#4a2723"/>
+                    <Entry IsPassword="True" x:Name="txt_senha"/>
+                    <Button Text="entrar" Clicked="Button_Clicked" BackgroundColor="#4a2723" TextColor="#07a2a6"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

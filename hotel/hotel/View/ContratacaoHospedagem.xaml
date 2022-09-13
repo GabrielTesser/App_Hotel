@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="hotel.View.ContatacaoHospedagem">
+    <ContentPage.Content>
+        <StackLayout Background="#4a2723">
+            <Label Text="Cálculo da Hospedagem" HorizontalTextAlignment="Center"
+                  FontSize="Title" TextColor="#07a2a6"/>
+
+            <Label x:Name="lbl_usuario" HorizontalOptions="Center" TextColor="#c84c54"/>
+
+            <Frame CornerRadius="10"
+                   BackgroundColor="#07a2a6"
+                   Margin="10, 0, 10, 10"
+                   Padding="20">
+
+                <StackLayout>
+                    <Grid ColumnDefinitions="*, *, 2*"
+                          RowDefinitions="*, *">
+
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="Adultos" TextColor="#4a2723" />
+
+                        <Label Grid.Row="0" Grid.Column="1" x:Name="lbl_qnt_adultos"
+                               BindingContext="{x:Reference stepperAdultos}" Text="{Binding Value}" TextColor="#4a2723"/>
+
+                        <Stepper Grid.Row="0" Grid.Column="2" x:Name="stepperAdultos" 
+                                 Minimum="0" Maximum="10" Increment="1" />
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Catarrentos" TextColor="#4a2723" />
+                        <Label Grid.Row="1" Grid.Column="1"
+                               x:Name="lbl_qnt_criancas"
+                               BindingContext="{x:Reference stepperCriancas}"
+                               Text="{Binding Value}" TextColor="#4a2723"/>
+                        <Stepper Grid.Row="1" Grid.Column="2"
+                                 x:Name="stepperCriancas"
+                                 Minimum="0" Maximum="10" Increment="1" />
+                    </Grid>
+
+                    <Label Text="Escolha sua Suíte" TextColor="#4a2723"/>
+                    <Picker x:Name="pck_suite"
+                            ItemDisplayBinding="{Binding Nome}"
+                            Title="Selecione sua Acomodação"/>
+
+                    <Frame BackgroundColor="#ddd"
+                           CornerRadius="10" Margin="10">
+                        <StackLayout>
+                            <Label Text="Período da Estadia" TextColor="#4a2723"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Check-in:" TextColor="#4a2723"/>
+                                <DatePicker x:Name="dtpck_checkin"
+                                            DateSelected="dtpck_checkin_DateSelected"
+                                            Format="dd/MM/yyyy" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Check-out:" TextColor="#4a2723"/>
+                                <DatePicker x:Name="dtpck_checkout"                                            
+                                            Format="dd/MM/yyyy" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Button Text="Calcular Hospedagem" Clicked="Button_Clicked_1" />
+
+                    <Button Text="Sair" Clicked="Button_Clicked"
+                            TextColor="Black"
+                            BackgroundColor="#CCC" />
+
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
